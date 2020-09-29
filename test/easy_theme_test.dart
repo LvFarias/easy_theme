@@ -1,13 +1,25 @@
+import 'package:easy_theme/easy_theme.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:easy_theme/easy_theme.dart';
-
 void main() {
-  test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
-    expect(() => calculator.addOne(null), throwsNoSuchMethodError);
+  final customTheme = CustomTheme(primary: Colors.blue);
+  test('crate CustomTheme class', () {
+    expect(
+      customTheme.toString(),
+      CustomTheme(primary: Colors.blue).toString(),
+    );
+  });
+  test('get my custom colors', () {
+    expect(
+      customTheme.getColors().primary.toString(),
+      Colors.blue.toString(),
+    );
+  });
+  test('get my custom theme', () {
+    expect(
+      customTheme.getTheme().primaryColor.toString(),
+      customTheme.getColors().primary.toString(),
+    );
   });
 }

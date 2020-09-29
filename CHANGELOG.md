@@ -1,3 +1,8 @@
-## [0.0.1] - TODO: Add release date.
+## [0.1.0] - 29/09/2020.
 
-* TODO: Describe initial release.
+* Init Project;
+* Add Example Project;
+* Add README.md;
+* Add tests;
+
+* TODO; calculate the Secondary Color based on the Primary Color when the Secondary is not informed.
