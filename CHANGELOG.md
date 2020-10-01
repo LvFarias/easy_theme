@@ -1,3 +1,15 @@
+## [1.0.0] - 01/10/2020.
+
+* Change classes names;
+* Export and Hide classes;
+* Passed in Tests;
+* bug fix in create MyColors;
+* when the Secondary is not informed. Secondary = Primary;
+* refactor exemples;
+
+* TODO: calculate the Secondary Color based on the Primary Color when the Secondary is not informed.
+* TODO: possibility to change colors: Black and White.
+
 ## [0.1.1] - 29/09/2020.
 
 * Add comments;

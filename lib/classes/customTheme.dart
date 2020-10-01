@@ -1,8 +1,13 @@
-import 'package:easy_theme/classes/myColors.dart';
-import 'package:easy_theme/classes/themeData.dart';
+/// import classes from material flutter package.
 import 'package:flutter/material.dart';
 
-class CustomTheme {
+/// import `MyColors` from file.
+import './myColors.dart';
+
+/// import `createNewTheme` from file.
+import './themeData.dart';
+
+abstract class CustomTheme {
   /// The variable that will save the colors
   MyColors _myColors;
 
@@ -58,11 +63,13 @@ class CustomTheme {
 
   /// turn a `Color` into `int`.
   int _colorToInt(Color color) {
+    /// return int
     return int.parse(color.value.toRadixString(16), radix: 16);
   }
 
   /// create `MyColors` for this custom theme.
   void _createMyColors() {
+    /// assigns the value of MyColors to myColors variable
     this._myColors = MyColors(
       primary: this._colorToInt(this.primary),
       secondary: this._colorToInt(this.secondary),
@@ -77,16 +84,19 @@ class CustomTheme {
 
   /// create `ThemeData` for this custom theme.
   void _createMyTheme() {
+    /// assigns the return of createNewTheme to myTheme variable
     this._myTheme = createNewTheme(this._myColors, this.brightness);
   }
 
   /// return `MyColors`.
   MyColors getColors() {
+    /// return _myColors.
     return this._myColors;
   }
 
   /// return `ThemeData`.
   ThemeData getTheme() {
+    /// return _myTheme.
     return this._myTheme;
   }
 }

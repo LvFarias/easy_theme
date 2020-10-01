@@ -1,4 +1,3 @@
-import 'package:easy_theme/easy_theme.dart';
 import 'package:example/tabs/chips.dart';
 import 'package:example/tabs/inputs.dart';
 import 'package:example/tabs/others.dart';
@@ -7,9 +6,17 @@ import 'package:example/tabs/typography.dart';
 import 'package:example/tabs/widgets.dart';
 import 'package:flutter/material.dart';
 
-final CustomTheme myCustomTheme = CustomTheme(primary: Colors.blue);
+////////// IMPORT EASY THEME //////////
+import 'package:easy_theme/easy_theme.dart';
+
+/// Creating a Easy Theme based on the blue color (`Colors.blue`)
+final EasyTheme myCustomTheme = EasyTheme(primary: Colors.blue);
+
+/// get the ThemeData object created by the EasyTheme
 final ThemeData myTheme = myCustomTheme.getTheme();
-final MyColors myColors = myCustomTheme.getColors();
+
+/// get the EasyColors object created by the EasyTheme
+final EasyColors myColors = myCustomTheme.getColors();
 
 void main() {
   runApp(MyApp());
@@ -19,7 +26,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Theme Test',
+      title: 'Easy Theme Exemple',
+
+      /// use `myTheme` in your
       theme: myTheme,
       home: MyHomePage(),
     );

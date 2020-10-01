@@ -1,6 +1,6 @@
 # Easy Theme
 
-![Language](https://img.shields.io/static/v1?label&message=Dart&logo=dart&color=0175C2&logoColor=FFF) ![Framework](https://img.shields.io/static/v1?label&message=Flutter&logo=flutter&color=02569B&logoColor=FFF) ![Version](https://img.shields.io/badge/Version-v0.1.1-0abab5) ![License](https://img.shields.io/badge/License-MIT-ba9f1c) ![Tests](https://img.shields.io/badge/PubDev%20Points-110-8a05be) ![Tests](https://img.shields.io/badge/Tests-Passed-25a108) ![Last Commit](https://img.shields.io/badge/Last%20Commit-29/09/20-10569c)
+![Language](https://img.shields.io/static/v1?label&message=Dart&logo=dart&color=0175C2&logoColor=FFF) ![Framework](https://img.shields.io/static/v1?label&message=Flutter&logo=flutter&color=02569B&logoColor=FFF) ![Version](https://img.shields.io/badge/Version-v1.0.0-0abab5) ![License](https://img.shields.io/badge/License-MIT-ba9f1c) ![Tests](https://img.shields.io/badge/PubDev%20Points-110-8a05be) ![Tests](https://img.shields.io/badge/Tests-Passed-25a108) ![Last Commit](https://img.shields.io/badge/Last%20Commit-29/09/20-10569c)
 
 ## Sumary
 
@@ -45,6 +45,13 @@ Now in your Dart code, you can use:
 import 'package:easy_theme/easy_theme.dart';
 ```
 
+### Use it
+Now in your Dart code, you can use:
+
+```dart
+final EasyTheme myCustomTheme = EasyTheme(primary: Colors.blue);
+```
+
 ## What is CustomTheme?
 Is the main class of the package, it will be responsible for generating a theme for your app and a color variable, which facilitates work and understanding.
 
@@ -53,7 +60,7 @@ It is also possible to pass a brightness to build dark or light themes.
 
 This class there are two public functions, they are:
 - __getColors__ that returns an object of type [MyColors](#mycolors)
-- __getTheme__ that returns an object of type [ThemeData](#themedata)
+- __getTheme__ that returns an object of type [ThemeData](https://api.flutter.dev/flutter/material/ThemeData-class.html)
 
 ### MyColors
 
@@ -112,179 +119,26 @@ final CustomTheme myCustomThemeDark = CustomTheme(
 ## Exemple
 
 ```dart
-import 'package:example/tabs/chips.dart';
-import 'package:example/tabs/inputs.dart';
-import 'package:example/tabs/others.dart';
-import 'package:example/tabs/sliders.dart';
-import 'package:example/tabs/typography.dart';
-import 'package:example/tabs/widgets.dart';
-import 'package:flutter/material.dart';
-
-###################################
-######## IMPORT EASY THEME ########
-
+////////// IMPORT EASY THEME //////////
 import 'package:easy_theme/easy_theme.dart';
 
-final CustomTheme myCustomTheme = CustomTheme(primary: Color(0XFF0175C2));
+/// Creating a Easy Theme based on the blue color (`Colors.blue`)
+final EasyTheme myCustomTheme = EasyTheme(primary: Colors.blue);
+
+/// get the ThemeData object created by the EasyTheme
 final ThemeData myTheme = myCustomTheme.getTheme();
-final MyColors myColors = myCustomTheme.getColors();
 
-######## IMPORT EASY THEME ########
-###################################
-
-void main() {
-  runApp(MyApp());
-}
+/// get the EasyColors object created by the EasyTheme
+final EasyColors myColors = myCustomTheme.getColors();
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Theme Test',
+      /// use `myTheme` in your
       theme: myTheme,
       home: MyHomePage(),
-    );
-  }
-}
-
-class TabItem {
-  final String text;
-  final IconData icon;
-
-  TabItem(this.text, this.icon);
-}
-
-class MyHomePage extends StatefulWidget {
-  ThemeData get theme => myTheme;
-
-  const MyHomePage({Key key}) : super(key: key);
-
-  @override
-  MyHomePageState createState() => MyHomePageState();
-}
-
-class MyHomePageState extends State<MyHomePage>
-    with SingleTickerProviderStateMixin {
-  // RepaintBoundary key
-  GlobalKey _globalKey = new GlobalKey();
-
-  final _tabsItem = [
-    TabItem('Controls', Icons.check_box),
-    TabItem('Buttons', Icons.touch_app),
-    TabItem('Inputs', Icons.keyboard),
-    TabItem('Slider', Icons.tune),
-    TabItem('Chips', Icons.dns),
-    TabItem('Others', Icons.people),
-    TabItem('Text', Icons.text_fields),
-    TabItem('Primary Text', Icons.text_fields),
-    TabItem('Accent Text', Icons.text_fields),
-    /*TabItem('Color scheme', Icons.color_lens),*/
-  ];
-
-  TabController tabBarController;
-
-  bool showFAB = true;
-
-  get bottomItems => [
-        {'label': 'Map', 'icon': Icons.map},
-        {'label': 'Description', 'icon': Icons.description},
-        {'label': 'Transform', 'icon': Icons.transform},
-      ]
-          .map<Widget>((item) => IconButton(
-                    icon: Icon(item['icon']),
-                    onPressed: () {},
-                  )
-              /*BottomNavigationBarItem(
-                icon: Icon(item['icon']),
-                title: Text(item['label']),
-              )*/
-              )
-          .toList();
-
-  @override
-  void initState() {
-    super.initState();
-    tabBarController = TabController(length: _tabsItem.length, vsync: this);
-    tabBarController.addListener(() {
-      setState(() {
-        showFAB = tabBarController.index == 0;
-      });
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return RepaintBoundary(
-      key: _globalKey,
-      child: AnimatedTheme(
-        data: widget.theme,
-        child: DefaultTabController(
-          length: _tabsItem.length,
-          child: Scaffold(
-            appBar: AppBar(
-              title: Text("App Preview"),
-              bottom: _buildTabBar(),
-              actions: <Widget>[
-                IconButton(icon: Icon(Icons.add), onPressed: () {}),
-                IconButton(icon: Icon(Icons.add_a_photo), onPressed: () {}),
-                /*IconButton(
-                      icon: Icon(Icons.create_new_folder),
-                      onPressed: () => Scaffold.of(context).openDrawer()),*/
-              ],
-            ),
-            floatingActionButton: tabBarController.index == 0
-                ? FloatingActionButton(
-                    child: Icon(
-                      Icons.check,
-                      /*color: widget.theme?.accentTextTheme?.button?.color,*/
-                    ),
-                    onPressed: () {})
-                : null,
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.endDocked,
-            drawer: Drawer(
-              child: ListView(
-                children: <Widget>[
-                  Text('Drawer'),
-                ],
-              ),
-            ),
-            body: TabBarView(controller: tabBarController, children: [
-              WidgetPreview(theme: widget.theme),
-              ButtonPreview(theme: widget.theme),
-              InputsPreview(theme: widget.theme),
-              SliderPreview(theme: widget.theme),
-              ChipsPreview(theme: widget.theme),
-              OthersPreview(theme: widget.theme),
-              TypographyPreview(
-                textTheme: widget.theme.textTheme,
-                brightness: widget.theme.brightness,
-              ),
-              TypographyPreview(
-                textTheme: widget.theme.primaryTextTheme,
-                brightness: widget.theme.primaryColorBrightness,
-              ),
-              TypographyPreview(
-                textTheme: widget.theme.accentTextTheme,
-                brightness: widget.theme.accentColorBrightness,
-              ),
-            ]),
-            bottomNavigationBar: BottomAppBar(
-              child: Row(children: bottomItems),
-              shape: CircularNotchedRectangle(),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  _buildTabBar() {
-    return TabBar(
-      isScrollable: true,
-      controller: tabBarController,
-      tabs:
-          _tabsItem.map((t) => Tab(text: t.text, icon: Icon(t.icon))).toList(),
     );
   }
 }

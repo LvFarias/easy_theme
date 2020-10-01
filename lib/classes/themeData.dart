@@ -1,5 +1,8 @@
-import 'package:easy_theme/classes/myColors.dart';
+/// import classes from material flutter package.
 import 'package:flutter/material.dart';
+
+/// import `MyColors` from file.
+import './myColors.dart';
 
 /// Build a `ThemeData` object based on `MyColors` and `Brightness`.
 ThemeData createNewTheme(MyColors myColors, Brightness brightness) {
@@ -27,18 +30,23 @@ ThemeData createNewTheme(MyColors myColors, Brightness brightness) {
 }
 
 /// checks whether the theme is `dark` or `light`.
-_isDark(Brightness brightness) {
+bool _isDark(Brightness brightness) {
+  /// return bool
   return brightness == Brightness.dark;
 }
 
 /// return new `FloatingActionButtonThemeData` customized by `Color`.
-_getFabThemeData(Color color) {
+FloatingActionButtonThemeData _getFabThemeData(Color color) {
+  /// return FloatingActionButtonThemeData
   return FloatingActionButtonThemeData(foregroundColor: color);
 }
 
 /// return new `TextTheme` customized by `Color`.
-_getTextTheme(Color color) {
+TextTheme _getTextTheme(Color color) {
+  /// set textColorStyle by color.
   final textColor = TextStyle(color: color);
+
+  /// return TextTheme
   return TextTheme(
     bodyText1: textColor,
     bodyText2: textColor,

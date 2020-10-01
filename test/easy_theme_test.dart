@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  final customTheme = CustomTheme(primary: Colors.blue);
+  final customTheme = EasyTheme(primary: Colors.blue);
   test('crate CustomTheme class', () {
     expect(
       customTheme.toString(),
-      CustomTheme(primary: Colors.blue).toString(),
+      EasyTheme(primary: Colors.blue).toString(),
     );
   });
   test('get my custom colors', () {

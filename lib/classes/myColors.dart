@@ -1,3 +1,4 @@
+/// import classes from material flutter package.
 import 'package:flutter/material.dart';
 
 class MyColors {
@@ -32,13 +33,13 @@ class MyColors {
   /// `primary` is the only argument that is required;
   MyColors({
     @required int primary,
-    int secondary,
-    int info,
-    int error,
-    int warning,
-    int success,
-    int white,
-    int black,
+    @required int secondary,
+    @required int info,
+    @required int error,
+    @required int warning,
+    @required int success,
+    @required int white,
+    @required int black,
   }) {
     /// Set `primary value` based on int value passed.
     this.primary = MaterialColor(
@@ -91,12 +92,16 @@ class MyColors {
 
   /// Get `Shade` to `Color` based on color and swatch 0 - 1000.
   Color _getSwatchShade(Color color, int swatch) {
+    /// calculate alpha
     final int alpha = (swatch * 255) ~/ 1000;
+
+    /// return Color
     return color.withAlpha(alpha);
   }
 
   /// Build a `MeterialColor` object based on `Color`.
   Map<int, Color> _getMaterialColorValues(Color color) {
+    /// return Map<int, Color>
     return <int, Color>{
       50: this._getSwatchShade(color, 50),
       100: this._getSwatchShade(color, 100),
