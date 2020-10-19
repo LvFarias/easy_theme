@@ -116,3 +116,26 @@ class MyColors {
     };
   }
 }
+
+/// export EasyColors class
+class EasyColors extends MyColors {
+  EasyColors({
+    @required int primary,
+    @required int secondary,
+    @required int info,
+    @required int error,
+    @required int warning,
+    @required int success,
+    @required int white,
+    @required int black,
+  }) : super(
+          primary: primary,
+          secondary: secondary,
+          info: info,
+          error: error,
+          warning: warning,
+          success: success,
+          white: white,
+          black: black,
+        );
+}

@@ -1,3 +1,10 @@
+## [1.0.1] - 19/10/2020.
+
+* bug fix in EasyColors class;
+
+* TODO: calculate the Secondary Color based on the Primary Color when the Secondary is not informed.
+* TODO: possibility to change colors: Black and White.
+
 ## [1.0.0] - 01/10/2020.
 
 * Change classes names;

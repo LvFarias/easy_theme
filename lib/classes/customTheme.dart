@@ -1,7 +1,7 @@
 /// import classes from material flutter package.
 import 'package:flutter/material.dart';
 
-/// import `MyColors` from file.
+/// import `EasyColors` from file.
 import './myColors.dart';
 
 /// import `createNewTheme` from file.
@@ -9,7 +9,7 @@ import './themeData.dart';
 
 abstract class CustomTheme {
   /// The variable that will save the colors
-  MyColors _myColors;
+  EasyColors _myColors;
 
   /// The variable that will save the theme
   ThemeData _myTheme;
@@ -67,10 +67,10 @@ abstract class CustomTheme {
     return int.parse(color.value.toRadixString(16), radix: 16);
   }
 
-  /// create `MyColors` for this custom theme.
+  /// create `EasyColors` for this custom theme.
   void _createMyColors() {
     /// assigns the value of MyColors to myColors variable
-    this._myColors = MyColors(
+    this._myColors = EasyColors(
       primary: this._colorToInt(this.primary),
       secondary: this._colorToInt(this.secondary),
       info: this._colorToInt(this.info),
@@ -88,8 +88,8 @@ abstract class CustomTheme {
     this._myTheme = createNewTheme(this._myColors, this.brightness);
   }
 
-  /// return `MyColors`.
-  MyColors getColors() {
+  /// return `EasyColors`.
+  EasyColors getColors() {
     /// return _myColors.
     return this._myColors;
   }
@@ -99,4 +99,25 @@ abstract class CustomTheme {
     /// return _myTheme.
     return this._myTheme;
   }
+}
+
+/// export EasyTheme class
+class EasyTheme extends CustomTheme {
+  EasyTheme({
+    @required Color primary,
+    Color secondary,
+    Color info,
+    Color error,
+    Color warning,
+    Color success,
+    Brightness brightness,
+  }) : super(
+          primary: primary,
+          secondary: secondary,
+          info: info,
+          error: error,
+          warning: warning,
+          success: success,
+          brightness: brightness,
+        );
 }

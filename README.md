@@ -1,6 +1,6 @@
 # Easy Theme
 
-![Language](https://img.shields.io/static/v1?label&message=Dart&logo=dart&color=0175C2&logoColor=FFF) ![Framework](https://img.shields.io/static/v1?label&message=Flutter&logo=flutter&color=02569B&logoColor=FFF) ![Version](https://img.shields.io/badge/Version-v1.0.0-0abab5) ![License](https://img.shields.io/badge/License-MIT-ba9f1c) ![Tests](https://img.shields.io/badge/PubDev%20Points-110-8a05be) ![Tests](https://img.shields.io/badge/Tests-Passed-25a108) ![Last Commit](https://img.shields.io/badge/Last%20Commit-29/09/20-10569c)
+![Language](https://img.shields.io/static/v1?label&message=Dart&logo=dart&color=0175C2&logoColor=FFF) ![Framework](https://img.shields.io/static/v1?label&message=Flutter&logo=flutter&color=02569B&logoColor=FFF) ![Version](https://img.shields.io/badge/Version-v1.0.1-0abab5) ![License](https://img.shields.io/badge/License-MIT-ba9f1c) ![Tests](https://img.shields.io/badge/PubDev%20Points-110-8a05be) ![Tests](https://img.shields.io/badge/Tests-Passed-25a108) ![Last Commit](https://img.shields.io/badge/Last%20Commit-29/09/20-10569c)
 
 ## Sumary
 
