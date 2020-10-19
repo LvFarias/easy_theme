@@ -1,6 +1,6 @@
 # Easy Theme
 
-![Language](https://img.shields.io/static/v1?label&message=Dart&logo=dart&color=0175C2&logoColor=FFF) ![Framework](https://img.shields.io/static/v1?label&message=Flutter&logo=flutter&color=02569B&logoColor=FFF) ![Version](https://img.shields.io/badge/Version-v1.0.1-0abab5) ![License](https://img.shields.io/badge/License-MIT-ba9f1c) ![Tests](https://img.shields.io/badge/PubDev%20Points-110-8a05be) ![Tests](https://img.shields.io/badge/Tests-Passed-25a108) ![Last Commit](https://img.shields.io/badge/Last%20Commit-29/09/20-10569c)
+![Language](https://img.shields.io/static/v1?label&message=Dart&logo=dart&color=0175C2&logoColor=FFF) ![Framework](https://img.shields.io/static/v1?label&message=Flutter&logo=flutter&color=02569B&logoColor=FFF) ![Version](https://img.shields.io/badge/Version-v1.0.2-0abab5) ![License](https://img.shields.io/badge/License-MIT-ba9f1c) ![Tests](https://img.shields.io/badge/PubDev%20Points-110-8a05be) ![Tests](https://img.shields.io/badge/Tests-Passed-25a108) ![Last Commit](https://img.shields.io/badge/Last%20Commit-29/09/20-10569c)
 
 ## Sumary
 
@@ -10,7 +10,7 @@
   - [Install it](#install-it)
   - [Import it](#import-it)
 - [What is CustomTheme](#what-is-customtheme)
-  - [MyColors](#mycolors)
+  - [EasyColors](#easycolors)
 - [Customize](#customize)
 - [Exemple](#exemple)
 - [Authors](#authors)
@@ -25,7 +25,7 @@ Add this to your package's pubspec.yaml file:
 
 ```yaml
 dependencies:
-  easy_theme: ^0.1.0
+  easy_theme: ^1.0.2
 ```
 
 ### Install it
@@ -59,10 +59,10 @@ When instantiation the class, it is mandatory to pass a primary color as a param
 It is also possible to pass a brightness to build dark or light themes.
 
 This class there are two public functions, they are:
-- __getColors__ that returns an object of type [MyColors](#mycolors)
+- __getColors__ that returns an object of type [EasyColors](#EasyColors)
 - __getTheme__ that returns an object of type [ThemeData](https://api.flutter.dev/flutter/material/ThemeData-class.html)
 
-### MyColors
+### EasyColors
 
 Is a class that transforms the colors passed in CustomTheme to MaterialColors, and puts it in an easy to understand structure to be used in the application.
 
@@ -71,13 +71,13 @@ primary; secondary; success; info; warning; error; white; black;
 
 White is #FFFFFF and Black is #000000.
 
-Secondary, if not provided at CustomTheme instantiation, a complementary color to the primary calculated by the MyColors class.
+Secondary, if not provided at CustomTheme instantiation, a complementary color to the primary calculated by the EasyColors class.
 
 ## Customize
 Try to pass more colors to CustomTheme for a more personalized theme.
 
 ```dart
-final CustomTheme myCustomTheme = CustomTheme(
+final EasyTheme myEasyTheme = EasyTheme(
     primary: Color(0XFF0F4C81),
     secondary: Color(0XFFCFA904),
     success: : Color(0XFF268209),
@@ -91,7 +91,7 @@ final CustomTheme myCustomTheme = CustomTheme(
 You can also create more than one theme for your application, as in the example below a dark and light theme is created
 
 ```dart
-final CustomTheme myCustomThemeLight = CustomTheme(
+final EasyTheme myEasyThemeLight = EasyTheme(
     primary: Color(0XFF0F4C81),
     secondary: Color(0XFFCFA904),
     success: : Color(0XFF268209),
@@ -101,7 +101,7 @@ final CustomTheme myCustomThemeLight = CustomTheme(
     brightness: Brightness.light,
 );
 
-final CustomTheme myCustomThemeDark = CustomTheme(
+final EasyTheme myEasyThemeDark = EasyTheme(
     primary: Color(0XFFCFA904),
     secondary: Color(0XFF007FB1),
     success: : Color(0XFF5AB009),

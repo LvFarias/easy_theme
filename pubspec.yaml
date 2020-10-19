@@ -1,6 +1,6 @@
 name: easy_theme
 description: A package to generate MaterialColors and a ThemeData for your Flutter App in an EASY and FAST WAY.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/LvFarias/easy_theme
 environment:
   sdk: ">=2.7.0 <3.0.0"
